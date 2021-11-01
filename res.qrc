@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/Images">
+        <file>tile.png</file>
+        <file>icon.png</file>
+        <file>BazziMove.png</file>
+        <file>DaoMove.png</file>
+    </qresource>
+</RCC>
