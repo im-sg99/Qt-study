@@ -12,8 +12,7 @@ imagetest::imagetest(QGraphicsItem *parent):QGraphicsPixmapItem(parent)
 
         }
         setPixmap(PicChar[0][0]);
-}
-
+    }
 }
 
 void imagetest::keyPressEvent(QKeyEvent *event)
@@ -35,4 +34,63 @@ void imagetest::keyPressEvent(QKeyEvent *event)
         setPos(x(),y()+15);
         setPixmap(PicChar[0][0]);
     }
+}
+
+
+/* 부드러운 움직임을 구현하려는 노력
+void imagetest::timerEvent(){
+    if (moving_left) {position.setX (position.x() - speed);setPixmap(PicChar[2][0]);};
+    if (moving_right) {position.setX (position.x() + speed);setPixmap(PicChar[3][0]);};
+    if (moving_up) {position.setY (position.y() - speed);setPixmap(PicChar[1][0]);};
+    if (moving_down) {position.setY (position.y() + speed);setPixmap(PicChar[0][0]);};
+}
+
+void imagetest::keyPressEvent(QKeyEvent *event)
+{
+    switch(event->key())  {
+
+    case Qt::Key_A :
+        moving_left = true;
+        break;
+
+    case Qt::Key_D :
+        moving_right = true;
+        break;
+    case Qt::Key_W :
+        moving_up = true;
+        break;
+
+    case Qt::Key_S :
+        moving_down = true;
+        break;
+    }
+}
+
+
+void imagetest::keyReleaseEvent(QKeyEvent *event)
+{
+    switch(event->key())  {
+
+    case Qt::Key_A :
+        moving_left = false;
+        break;
+
+    case Qt::Key_D :
+        moving_right = false;
+        break;
+    case Qt::Key_W :
+        moving_up = false;
+        break;
+
+    case Qt::Key_S :
+        moving_down = false;
+        break;
+    }
+}*/
+
+
+void imagetest::FrameImage(int f1,int fTotal){
+    if(f1>=fTotal)
+        f1=0;
+    f1++;
 }

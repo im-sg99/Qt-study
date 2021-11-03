@@ -2,7 +2,15 @@
     <qresource prefix="/Images">
         <file>tile.png</file>
         <file>icon.png</file>
-        <file>BazziMove.png</file>
         <file>DaoMove.png</file>
+        <file>box.png</file>
+        <file>bush.png</file>
+        <file>bushShadow.png</file>
+        <file>house.png</file>
+        <file>tree.png</file>
+        <file>BazziMove.png</file>
+    </qresource>
+    <qresource prefix="/object">
+        <file>Obj.txt</file>
     </qresource>
 </RCC>

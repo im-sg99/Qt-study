@@ -17,6 +17,8 @@ Game::Game(){
 
     AddMap();
     AddPlayer();
+    AddBlock();
+
 }
 
 void Game::AddMap(){
@@ -38,7 +40,41 @@ void Game::AddPlayer(){
     scene->addItem(imagetest1);
 }
 
+void Game::AddBlock(){  //블록을 만들어야 되는데 오류가 남
 
+    int BlockArray[15][13] =
+    {
+        {	0,	0,	0,	3,	1,	2,	7,	1,	5,	2,	5,	0,	5   },
+        {	2,	6,	0,	6,	2,	6,	8,	2,	3,	1,	0,	0,	0	},
+        {	1,	3,  2,	3,	1,	2,	7,	1,	5,	2,	5,	1,	5   },
+        {	2,	6,	1,	6,	2,	6,	8,	2,	3,	1,	3,	2,	1	},
+        {	1,	3,	2,	3,	1,	2,	7,	1,	5,	2,	5,	1,	5	},
+        {	8,	7,	8,	7,	0,	7,	8,	0,	8,	7,	8,	7,	8	},
+        {	0,	3,	0,	3,	3,	3,	0,	3,	0,	3,	0,	3,	0	},
+        {	0,	0,	0,	0,	0,	3,	0,	0,	3,	0,	0,	3,	0	},
+        {	3,	0,	3,	0,	0,	0,	3,	0,	3,	0,	3,	0,	3	},
+        {	8,	7,	8,	7,	7,	0,	8,	7,	8,	7,	8,	7,	8	},
+        {	4,	1,	4,	2,	1,	1,	7,	1,	2,	3,	1,	3,	2	},
+        {	1,	2,	3,	1,	6,	2,	8,	6,	1,	6,	2,	1,	1	},
+        {	4,	0,	4,	2,	1,	1,	7,	1,	2,	3,	1,	3,	2	},
+        {	0,	0,	3,	1,	6,	2,	8,	6,	1,	6,	2,	1,	0	},
+        {	4,	0,	4,	2,	1,	1,	7,	1,	2,	3,	0,	0,	0	}
+    };
+
+ /*    QGraphicsPixmapItem* blockItem[15][13];
+   for(int i=0;i<15;i++){
+        for (int j=0;j<13 ;j++ ) {
+            if(0!=BlockArray[i][j]){
+            pixmapItem[i][j]=scene->addPixmap(block->getBlock(BlockArray[i][j]));
+            pixmapItem[i][j]->setPos(i*60,j*60);
+            }
+            }
+        }
+    }
+
+    blockItem[0][1]=scene->addPixmap(block->getBlock(1));
+    blockItem[0][1]->setPos(0,60);*/
+}
 
 //빌리지 타일 구성
 void Game::Blige(){
@@ -259,3 +295,4 @@ void Game::Blige(){
         }
     }
 }
+
