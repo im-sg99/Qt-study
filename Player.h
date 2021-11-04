@@ -4,7 +4,7 @@
 #include <QGraphicsPixmapItem>
 #include <QGraphicsItem>
 #include <QWidget>
-
+//아직 안씁니다.
 class Player:public QGraphicsPixmapItem
 {
 public:

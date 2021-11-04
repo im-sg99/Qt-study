@@ -26,13 +26,7 @@ void Game::AddMap(){
     Blige();
 }
 
-void Game::AddPlayer(){
-    /*player = new Player();
-    player->setPos(100,200);
-    player->setFlag(QGraphicsItem::ItemIsFocusable);
-    player->setFocus();
-    scene->addItem(player);*/
-
+void Game::AddPlayer(){   
     imagetest1 = new imagetest();
     imagetest1->setPos(350,250);
     imagetest1->setFlag(QGraphicsItem::ItemIsFocusable);

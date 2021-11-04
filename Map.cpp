@@ -22,16 +22,11 @@ Map::Map():QPixmap(),QGraphicsPixmapItem()
 QPixmap Map::getTile(int a){
 
     switch (a) {
-    case 1:
-        return PicMap[0];
-    case 2:
-        return PicMap[1];
-    case 3:
-        return PicMap[2];
-    case 4:
-        return PicMap[3];
-    case 5:
-        return PicMap[4];
+    case 1:return PicMap[0];
+    case 2:return PicMap[1];
+    case 3:return PicMap[2];
+    case 4:return PicMap[3];
+    case 5:return PicMap[4];
     }
     return PicMap[0];
 }

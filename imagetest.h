@@ -12,19 +12,16 @@ class imagetest:public QGraphicsPixmapItem
 public:
     explicit imagetest(QGraphicsItem *parent=0);
     void keyPressEvent(QKeyEvent * event);
-//    void keyReleaseEvent(QKeyEvent * event);
+    void keyReleaseEvent(QKeyEvent * event);
     void FrameImage(int,int);
-//   void timerEvent();
+    void timerEvent();
 
 protected:
     QPixmap PicChar[4][7];
 
 private:
-    QTimer *timer;
-    int speed;
+    int speed=10;
     QPoint position;
-
-
     bool moving_left,moving_right,moving_up,moving_down;
 };
 

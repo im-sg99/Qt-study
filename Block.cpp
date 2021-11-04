@@ -29,30 +29,21 @@ Block::Block():QPixmap(),QGraphicsPixmapItem()
 QPixmap Block::getBlock(int a){
 
     switch (a) {
-    case 1:
-        return redBlock;
-    case 2:
-        return yellowBlock;
-    case 3:
-        return boxBlock;
-    case 4:
-        return yellowHouse;
-    case 5:
-        return blueHouse;
-    case 6:
-        return redHouse;
-    case 7:
-        return tree;
-    case 8:
-        return bush;
-
+    case 1:return redBlock;
+    case 2:return yellowBlock;
+    case 3:return boxBlock;
+    case 4:return yellowHouse;
+    case 5:return blueHouse;
+    case 6:return redHouse;
+    case 7:return tree;
+    case 8:return bush;
     }
     return bush;
 }
 
 
 
-/*
+/* 참고용
 
 void MainWindow::createBlock(){
     int length = 0;

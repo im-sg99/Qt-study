@@ -1,6 +1,8 @@
 #include "Player.h"
 #include <QKeyEvent>
 
+
+//아직 안씁니다.
 Player::Player(QGraphicsItem *parent):QGraphicsPixmapItem(parent)
 {
     QPixmap original(":/Images/DaoMove.png");
