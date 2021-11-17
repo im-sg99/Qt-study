@@ -17,9 +17,9 @@ Game::Game(){
 
     AddMap();
     AddPlayer();
-    AddBlock();
-    QGraphicsPixmapItem* AA=scene->addPixmap(QPixmap(":/Images/bush.png")) ;
-    AA->setPos(60,36);
+    //AddBlock();
+   //QGraphicsPixmapItem* AA=scene->addPixmap(QPixmap(":/Images/bush.png")) ;
+    //AA->setPos(60,36);
 
 }
 
@@ -29,13 +29,13 @@ void Game::AddMap(){
 }
 
 void Game::AddPlayer(){   
-    imagetest1 = new imagetest();
-    imagetest1->setPos(350,250);
-    imagetest1->setFlag(QGraphicsItem::ItemIsFocusable);
-    imagetest1->setFocus();
-    scene->addItem(imagetest1);
+    player= new Player();
+    player->setPos(350,250);
+    player->setFlag(QGraphicsItem::ItemIsFocusable);
+    player->setFocus();
+    scene->addItem(player);
 }
-
+/*
 void Game::AddBlock(){
 
     int BlockArray[15][13] =
@@ -67,7 +67,7 @@ void Game::AddBlock(){
           }
        }
 }
-
+*/
 
 //빌리지 타일 구성
 void Game::Blige(){

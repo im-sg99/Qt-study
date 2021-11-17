@@ -14,7 +14,6 @@ SOURCES += \
     Map.cpp \
     Player.cpp \
     bomb.cpp \
-    imagetest.cpp \
     main.cpp
 
 HEADERS += \
@@ -22,8 +21,7 @@ HEADERS += \
     Game.h \
     Map.h \
     Player.h \
-    bomb.h \
-    imagetest.h
+    bomb.h
 
 FORMS +=
 

@@ -15,9 +15,8 @@
 #include <QPixmap>
 #include <QPainter>
 #include "Map.h"
-#include "Player.h"
 #include "Block.h"
-#include "imagetest.h"
+#include "Player.h"
 
 
 class Game: public QGraphicsView{
@@ -31,10 +30,9 @@ public:
 
 private:
     QGraphicsScene * scene;
-    Player * player;
     Block * block;
     Map * map;
-    imagetest * imagetest1;
+    Player * player;
 
 };
 
