@@ -9,6 +9,7 @@
         <file>house.png</file>
         <file>tree.png</file>
         <file>BazziMove.png</file>
+        <file>bomb_already.png</file>
     </qresource>
     <qresource prefix="/object">
         <file>Obj.txt</file>

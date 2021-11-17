@@ -18,6 +18,8 @@ Game::Game(){
     AddMap();
     AddPlayer();
     AddBlock();
+    QGraphicsPixmapItem* AA=scene->addPixmap(QPixmap(":/Images/bush.png")) ;
+    AA->setPos(60,36);
 
 }
 
@@ -34,13 +36,13 @@ void Game::AddPlayer(){
     scene->addItem(imagetest1);
 }
 
-void Game::AddBlock(){  //블록을 만들어야 되는데 오류가 남
+void Game::AddBlock(){
 
     int BlockArray[15][13] =
     {
         {	0,	0,	0,	3,	1,	2,	7,	1,	5,	2,	5,	0,	5   },
         {	2,	6,	0,	6,	2,	6,	8,	2,	3,	1,	0,	0,	0	},
-        {	1,	3,  2,	3,	1,	2,	7,	1,	5,	2,	5,	1,	5   },
+        {	1,	3, 2, 3,	1,	2,	7,	1,	5,	2,	5,	1,	5   },
         {	2,	6,	1,	6,	2,	6,	8,	2,	3,	1,	3,	2,	1	},
         {	1,	3,	2,	3,	1,	2,	7,	1,	5,	2,	5,	1,	5	},
         {	8,	7,	8,	7,	0,	7,	8,	0,	8,	7,	8,	7,	8	},
@@ -53,22 +55,19 @@ void Game::AddBlock(){  //블록을 만들어야 되는데 오류가 남
         {	4,	0,	4,	2,	1,	1,	7,	1,	2,	3,	1,	3,	2	},
         {	0,	0,	3,	1,	6,	2,	8,	6,	1,	6,	2,	1,	0	},
         {	4,	0,	4,	2,	1,	1,	7,	1,	2,	3,	0,	0,	0	}
-    };
+    }; //getBLock 으로 픽스맵 받아옴
 
- /*    QGraphicsPixmapItem* blockItem[15][13];
-   for(int i=0;i<15;i++){
-        for (int j=0;j<13 ;j++ ) {
-            if(0!=BlockArray[i][j]){
-            pixmapItem[i][j]=scene->addPixmap(block->getBlock(BlockArray[i][j]));
-            pixmapItem[i][j]->setPos(i*60,j*60);
+    QGraphicsPixmapItem* blockItem[15][13];
+     for(int i=0;i<15;i++){
+          for (int j=0;j<13 ;j++ ) {
+              if(BlockArray[i][j]!=0){ //어레이값이 0이 아니면
+              blockItem[i][j]=scene->addPixmap(QPixmap(block->getBlock(BlockArray[i][j])));
+              blockItem[i][j]->setPos(i*60,j*60);
             }
-            }
-        }
-    }
-
-    blockItem[0][1]=scene->addPixmap(block->getBlock(1));
-    blockItem[0][1]->setPos(0,60);*/
+          }
+       }
 }
+
 
 //빌리지 타일 구성
 void Game::Blige(){

@@ -1,5 +1,4 @@
 #include "Map.h"
-#include "Block.h"
 
 Map::Map():QPixmap(),QGraphicsPixmapItem()
 {

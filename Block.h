@@ -1,20 +1,19 @@
 #ifndef BLOCK_H
 #define BLOCK_H
-#include <QPixmap>
-#include <QChar>
 #include <QGraphicsPixmapItem>
+#include <QPainter>
+#include <QPixmap>
+#include <QWidget>
+#include <QPainter>
 
-class Block:public QPixmap,public QGraphicsPixmapItem
-{
+class Block:public QPixmap,public QGraphicsPixmapItem{
+
 public:
     Block();
     QPixmap getBlock(int a);
 
-private:
-    QPixmap redBlock, yellowBlock, boxBlock;
-    QPixmap yellowHouse, blueHouse, redHouse;
-    QPixmap tree, bush;
-
+protected:
+    QPixmap pixmapblock[8];
 };
 
-#endif // BLOCK_H
+#endif

@@ -1,5 +1,7 @@
 #include "imagetest.h"
+#include "bomb.h"
 #include <QKeyEvent>
+#include <QGraphicsScene>
 
 imagetest::imagetest(QGraphicsItem *parent):QGraphicsPixmapItem(parent)
 {
@@ -44,8 +46,10 @@ void imagetest::keyReleaseEvent(QKeyEvent *event)
     timerEvent();
 }
 
-void imagetest::FrameImage(int f1,int fTotal){
-    if(f1>=fTotal)
-        f1=0;
-    f1++;
+void imagetest::setBomb(QKeyEvent *event){
+    if (event->key() == Qt::Key_Space){
+
+            Bomb * bomb = new Bomb();
+            scene()->addItem(bomb);
+    }
 }

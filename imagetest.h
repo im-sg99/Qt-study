@@ -15,6 +15,7 @@ public:
     void keyReleaseEvent(QKeyEvent * event);
     void FrameImage(int,int);
     void timerEvent();
+    void setBomb(QKeyEvent *event);
 
 protected:
     QPixmap PicChar[4][7];

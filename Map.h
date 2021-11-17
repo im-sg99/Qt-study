@@ -19,4 +19,4 @@ protected:
 };
 
 
-#endif // PLAYER_H
+#endif
