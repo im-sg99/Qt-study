@@ -3,14 +3,14 @@
 Block::Block():QPixmap(),QGraphicsPixmapItem()
 {
     QPixmap box(":/Images/box.png");
-    QRect rect1(0, 0, 60, 45);
+    QRect rect1(0, 0, 40, 45);
     pixmapblock[0] = box.copy(rect1);
-    QRect rect2(60, 0, 60, 45);
+    QRect rect2(40, 0, 40, 45);
     pixmapblock[1] = box.copy(rect2);
-    QRect rect3(120, 0, 60, 45);
+    QRect rect3(80, 0, 40, 45);
     pixmapblock[2] = box.copy(rect3);
 
-    QPixmap house(":/Iamge/house.png");
+    QPixmap house(":/Images/house.png");
     QRect rect4(0,0,60,90);
     pixmapblock[3] = house.copy(rect4);
     QRect rect5(60,0,60,90);
@@ -18,9 +18,9 @@ Block::Block():QPixmap(),QGraphicsPixmapItem()
     QRect rect6(120,0,60,90);
     pixmapblock[5] = house.copy(rect6);
 
-    QPixmap tree(":/Image/tree.png");
+    QPixmap tree(":/Images/tree.png");
     this->pixmapblock[6] =tree;
-    QPixmap bush(":/Image/bush.png");
+    QPixmap bush(":/Images/bush.png");
     this->pixmapblock[7]=bush;
 
 }
