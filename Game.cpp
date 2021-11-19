@@ -26,17 +26,14 @@ Game::Game(){
 void Game::InitializeMap(QGraphicsScene &scene){
     m_map = new Map();
 
-    QGraphicsPixmapItem* pixmapItem[13][15];
-
     int** pixmapInfo = m_map->GetPixmapInfo();
     for(int r=0; r<m_map->PixmapRow; r++) {
         for(int c=0; c<m_map->PixmapColumn; c++) {
             int type = pixmapInfo[r][c];
             auto tile = m_map->getTile(type);
+
             auto pixmap = scene.addPixmap(tile);
             pixmap->setPos(c*60, r*60);
-
-            pixmapItem[r][c] = pixmap;
         }
     }
 }
