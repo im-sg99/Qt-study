@@ -24,8 +24,21 @@ Game::Game(){
 }
 
 void Game::InitializeMap(QGraphicsScene &scene){
-    m_map =new Map();
-    Village(scene);
+    m_map = new Map();
+
+    QGraphicsPixmapItem* pixmapItem[13][15];
+
+    int** pixmapInfo = m_map->GetPixmapInfo();
+    for(int r=0; r<m_map->PixmapRow; r++) {
+        for(int c=0; c<m_map->PixmapColumn; c++) {
+            int type = pixmapInfo[r][c];
+            auto tile = m_map->getTile(type);
+            auto pixmap = scene.addPixmap(tile);
+            pixmap->setPos(c*60, r*60);
+
+            pixmapItem[r][c] = pixmap;
+        }
+    }
 }
 
 void Game::InitializePlayer(){
@@ -35,38 +48,3 @@ void Game::InitializePlayer(){
     m_player->setFocus();
     m_scene->addItem(m_player);
 }
-
-//빌리지 타일 구성
-void Game::Village(QGraphicsScene &scene){
-    int blockArray[13][15] = {{	2,	1,	2,	1,	2,	1,	3,	4,	3,	1,	2,	1,	2,	1,	2	},
-                              {	1,	2,	1,	2,	1,	2,	3,	4,	3,	2,	1,	2,	1,	2,	1	},
-                              {	2,	1,	2,	1,	2,	1,	5,	5,	5,	1,	2,	1,	2,	1,	2	},
-                              {	1,	2,	1,	2,	1,	2,	3,	4,	3,	2,	1,	2,	1,	2,	1	},
-                              {	2,	1,	2,	1,	2,	1,	3,	4,	3,	1,	2,	1,	2,	1,	2	},
-                              {	1,	2,	1,	2,	1,	2,	3,	4,	3,	2,	1,	2,	1,	2,	1	},
-                              {	2,	1,	2,	1,	2,	1,	3,	4,	3,	1,	2,	1,	2,	1,	2	},
-                              {	1,	2,	1,	2,	1,	2,	3,	4,	3,	2,	1,	2,	1,	2,	1	},
-                              {	2,	1,	2,	1,	2,	1,	3,	4,	3,	1,	2,	1,	2,	1,	2	},
-                              {	1,	2,	1,	2,	1,	2,	3,	4,	3,	2,	1,	2,	1,	2,	1	},
-                              {	2,	1,	2,	1,	2,	1,	5,	5,	5,	1,	2,	1,	2,	1,	2	},
-                              {	1,	2,	1,	2,	1,	2,	3,	4,	3,	2,	1,	2,	1,	2,	1	},
-                              {	2,	1,	2,	1,	2,	1,	3,	4,	3,	1,	2,	1,	2,	1,	2	}};
-
-    QGraphicsPixmapItem* pixmapItem[13][15];
-
-    for(int r=0; r<13; r++) {
-        for(int c=0; c<15; c++) {
-            int type = blockArray[r][c];
-            auto tile = m_map->getTile(type);
-            pixmapItem[r][c] = scene.addPixmap(tile);
-        }
-    }
-
-    //맵 출력 및 위치 잡기
-    for(int r=0; r<13; r++) {
-        for(int c=0; c<15; c++) {
-            pixmapItem[r][c]->setPos(c*60, r*60);
-        }
-    }
-}
-

@@ -10,13 +10,15 @@
 class Map:public QPixmap,public QGraphicsPixmapItem{
 
 public:
+    const int PixmapRow = 13;
+    const int PixmapColumn = 15;
+
     Map();
+    QPixmap** GetPixmapInfo();
     QPixmap getTile(int a);
 
 protected:
     QPixmap PicMap[5];
-
 };
-
 
 #endif
