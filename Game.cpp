@@ -25,7 +25,7 @@ Game::Game(){
 
 void Game::InitializeMap(QGraphicsScene &scene){
     m_map =new Map();
-    Blige(scene);
+    Village(scene);
 }
 
 void Game::InitializePlayer(){
@@ -37,7 +37,7 @@ void Game::InitializePlayer(){
 }
 
 //빌리지 타일 구성
-void Game::Blige(QGraphicsScene &scene){
+void Game::Village(QGraphicsScene &scene){
     int blockArray[13][15] = {{	2,	1,	2,	1,	2,	1,	3,	4,	3,	1,	2,	1,	2,	1,	2	},
                               {	1,	2,	1,	2,	1,	2,	3,	4,	3,	2,	1,	2,	1,	2,	1	},
                               {	2,	1,	2,	1,	2,	1,	5,	5,	5,	1,	2,	1,	2,	1,	2	},
