@@ -1,5 +1,6 @@
 #include "Game.h"
 
+#include <QSaveFile>
 Game::Game(){
 
     //타이틀 제목 설정
@@ -17,24 +18,18 @@ Game::Game(){
 
     InitializeMap(*m_scene);
 
-    // QGraphicsPixmapItem* AA = m_scene->addPixmap(QPixmap(":/Images/bush.png")) ;
-    // AA->setPos(60,36);
-
     setScene(m_scene);
 }
 
 void Game::InitializeMap(QGraphicsScene &scene){
-    m_map = new Map();
+    QLinkedList<QGraphicsPixmapItem *> pixmaps = m_mapgen.GetPixmapInfo();
 
-    int** pixmapInfo = m_map->GetPixmapInfo();
-    for(int r=0; r<m_map->PixmapRow; r++) {
-        for(int c=0; c<m_map->PixmapColumn; c++) {
-            int type = pixmapInfo[r][c];
-            auto tile = m_map->getTile(type);
+    QLinkedList<QGraphicsPixmapItem*>::iterator it = pixmaps.begin();
+    while (it != pixmaps.end()) {
+        QGraphicsPixmapItem* item = *it;
 
-            auto pixmap = scene.addPixmap(tile);
-            pixmap->setPos(c*60, r*60);
-        }
+        scene.addPixmap(item->pixmap());
+        ++it;
     }
 }
 

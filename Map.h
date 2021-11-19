@@ -14,7 +14,7 @@ public:
     const int PixmapColumn = 15;
 
     Map();
-    QPixmap** GetPixmapInfo();
+    int* GetPixmapInfo();
     QPixmap getTile(int a);
 
 protected:

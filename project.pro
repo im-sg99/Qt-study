@@ -14,14 +14,20 @@ SOURCES += \
     Map.cpp \
     Player.cpp \
     bomb.cpp \
-    main.cpp
+    main.cpp \
+    villagemapgenerator.cpp \
+    virtualmapgenerator.cpp \
+    fileutilities.cpp
 
 HEADERS += \
     Block.h \
     Game.h \
     Map.h \
     Player.h \
-    bomb.h
+    bomb.h \
+    villagemapgenerator.h \
+    virtualmapgenerator.h \
+    fileutilities.h
 
 FORMS +=
 
