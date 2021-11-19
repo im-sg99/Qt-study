@@ -26,10 +26,16 @@ Game::Game(){
 void Game::InitializeMap(QGraphicsScene &scene){
     m_map = new Map();
 
-    int** pixmapInfo = m_map->GetPixmapInfo();
-    for(int r=0; r<m_map->PixmapRow; r++) {
-        for(int c=0; c<m_map->PixmapColumn; c++) {
-            int type = pixmapInfo[r][c];
+    int* pixmapInfo = m_map->GetPixmapInfo();
+
+    int pxRow = m_map->PixmapRow;
+    int pxCol = m_map->PixmapColumn;
+
+    for(int r=0; r<pxRow; r++) {
+        for(int c=0; c<pxCol; c++) {
+
+            int idx = (pxCol * r) + c;
+            int type = *(pixmapInfo + idx);
             auto tile = m_map->getTile(type);
 
             auto pixmap = scene.addPixmap(tile);
