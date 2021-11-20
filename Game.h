@@ -21,18 +21,17 @@
 
 class Game: public QGraphicsView{
 public:
-
     Game();
-    void AddMap();
-    void AddPlayer();
-    void Blige();
-    void AddBlock();
 
 private:
-    QGraphicsScene * scene;
-    Block * block;
-    Map * map;
-    Player * player;
+    void InitializeMap(QGraphicsScene &scene);
+    void InitializePlayer();
+    void Village(QGraphicsScene &scene);
+
+    QGraphicsScene * m_scene;
+    Block * m_block;
+    Map * m_map;
+    Player * m_player;
 
 };
 
