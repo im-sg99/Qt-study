@@ -15,10 +15,11 @@ public:
 
     Map();
     int* GetPixmapInfo();
-    QPixmap getTile(int a);
+    QPixmap getTile(int tile);
 
 protected:
     QPixmap PicMap[5];
+
 };
 
 #endif

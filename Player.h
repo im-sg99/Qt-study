@@ -16,6 +16,7 @@ public:
     void FrameImage(int,int);
     void timerEvent();
     void setBomb(QKeyEvent *event);
+    void z_Value();
 
 protected:
     QPixmap PicChar[4][7];
@@ -24,6 +25,7 @@ private:
     int speed=10;
     QPoint position;
     bool moving_left,moving_right,moving_up,moving_down;
+    int y_Pos[13];
 };
 
 #endif // PLAYER_H

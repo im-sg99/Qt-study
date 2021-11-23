@@ -27,6 +27,7 @@ private:
     void InitializeMap(QGraphicsScene &scene);
     void InitializePlayer();
     void Village(QGraphicsScene &scene);
+    void InitializeBlock(QGraphicsScene &scene);
 
     QGraphicsScene * m_scene;
     Block * m_block;
