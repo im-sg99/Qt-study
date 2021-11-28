@@ -6,52 +6,6 @@
 VillageMapGenerator::VillageMapGenerator()
     : VirtualMapGenerator()
 {
-
-}
-
-std::vector<std::vector<int>> InitializePixmapIndexes() {
-
-    static std::vector<std::vector<int>> matrix =
-    {  { 2, 1,	2,	1,	2,	1,	3,	4,	3,	1,	2,	1,	2,	1,	2 },
-       { 1, 2,	1,	2,	1,	2,	3,	4,	3,	2,	1,	2,	1,	2,	1 },
-       { 2, 1,	2,	1,	2,	1,	5,	5,	5,	1,	2,	1,	2,	1,	2 },
-       { 1, 2,	1,	2,	1,	2,	3,	4,	3,	2,	1,	2,	1,	2,	1 },
-       { 2, 1,	2,	1,	2,	1,	3,	4,	3,	1,	2,	1,	2,	1,	2 },
-       { 1, 2,	1,	2,	1,	2,	3,	4,	3,	2,	1,	2,	1,	2,	1 },
-       { 2, 1,	2,	1,	2,	1,	3,	4,	3,	1,	2,	1,	2,	1,	2 },
-       { 1, 2,	1,	2,	1,	2,	3,	4,	3,	2,	1,	2,	1,	2,	1 },
-       { 2, 1,	2,	1,	2,	1,	3,	4,	3,	1,	2,	1,	2,	1,	2 },
-       { 1, 2,	1,	2,	1,	2,	3,	4,	3,	2,	1,	2,	1,	2,	1 },
-       { 2, 1,	2,	1,	2,	1,	5,	5,	5,	1,	2,	1,	2,	1,	2 },
-       { 1, 2,	1,	2,	1,	2,	3,	4,	3,	2,	1,	2,	1,	2,	1 },
-       { 2, 1,	2,	1,	2,	1,	3,	4,	3,	1,	2,	1,	2,	1,	2 }
-    };
-
-    return matrix;
-}
-
-QLinkedList<QPixmap *> InitializePixmaps()
-{
-    QLinkedList<QPixmap *> result;
-
-    QPixmap orig(":/Images/tile.png");
-
-    QPixmap pixmap = orig.copy(QRect(0, 0, 60, 60));
-    result.append(&pixmap);
-
-    pixmap = orig.copy(QRect(60, 0, 60, 60));
-    result.append(&pixmap);
-
-    pixmap = orig.copy(QRect(120, 0, 60, 60));
-    result.append(&pixmap);
-
-    pixmap = orig.copy(QRect(180, 0, 60, 60));
-    result.append(&pixmap);
-
-    pixmap = orig.copy(QRect(240, 0, 60, 60));
-    result.append(&pixmap);
-
-    return result;
 }
 
 int GetMax(const std::vector<std::vector<int>> &vector) {
@@ -74,25 +28,63 @@ int VillageMapGenerator::GetPixmapRow()
     return 13;
 }
 
-std::vector<std::vector<int>> VillageMapGenerator::GetPixmapIndexes()
+bool VillageMapGenerator::GetPixmapMatrix(std::vector<std::vector<int>> &matrix)
 {
-    if (m_blockArray.empty())
-        m_blockArray = InitializePixmapIndexes();
+    if (m_matrix.empty())
+    {
+        m_matrix.clear();
 
-    return m_blockArray;
+        static std::vector<std::vector<int>> m(
+        {
+            { 2, 1,	2,	1,	2,	1,	3,	4,	3,	1,	2,	1,	2,	1,	2 },
+            { 1, 2,	1,	2,	1,	2,	3,	4,	3,	2,	1,	2,	1,	2,	1 },
+            { 2, 1,	2,	1,	2,	1,	5,	5,	5,	1,	2,	1,	2,	1,	2 },
+            { 1, 2,	1,	2,	1,	2,	3,	4,	3,	2,	1,	2,	1,	2,	1 },
+            { 2, 1,	2,	1,	2,	1,	3,	4,	3,	1,	2,	1,	2,	1,	2 },
+            { 1, 2,	1,	2,	1,	2,	3,	4,	3,	2,	1,	2,	1,	2,	1 },
+            { 2, 1,	2,	1,	2,	1,	3,	4,	3,	1,	2,	1,	2,	1,	2 },
+            { 1, 2,	1,	2,	1,	2,	3,	4,	3,	2,	1,	2,	1,	2,	1 },
+            { 2, 1,	2,	1,	2,	1,	3,	4,	3,	1,	2,	1,	2,	1,	2 },
+            { 1, 2,	1,	2,	1,	2,	3,	4,	3,	2,	1,	2,	1,	2,	1 },
+            { 2, 1,	2,	1,	2,	1,	5,	5,	5,	1,	2,	1,	2,	1,	2 },
+            { 1, 2,	1,	2,	1,	2,	3,	4,	3,	2,	1,	2,	1,	2,	1 },
+            { 2, 1,	2,	1,	2,	1,	3,	4,	3,	1,	2,	1,	2,	1,	2 }
+        });
+
+        matrix = m;
+    }
+
+    return true;
 }
 
-QLinkedList<QPixmap *> VillageMapGenerator::GetPixmaps()
+bool VillageMapGenerator::GetPixmaps(QLinkedList<QPixmap *> &pixmaps)
 {
-    auto matrix = GetPixmapIndexes();
+    bool success = GetPixmapMatrix(m_matrix);
+    if (!success)
+        return false;
 
-    int max = GetMax(matrix);
+    if (pixmaps.count() < GetMax(m_matrix))
+    {
+        // TODO:: need to destory elements;
+        pixmaps.clear();
 
-    if (m_pixmaps.count() < max)
-        m_pixmaps = InitializePixmaps();
+        auto orig = new QPixmap(":/Images/tile.png");
 
-    bool success = m_pixmaps.last()->save("1.jpeg");
-    std::printf("1");
+        auto pixmap = new QPixmap(orig->copy(QRect(0, 0, 60, 60)));
+        pixmaps.append(pixmap);
 
-    return m_pixmaps;
+        pixmap = new QPixmap(orig->copy(QRect(60, 0, 60, 60)));
+        pixmaps.append(pixmap);
+
+        pixmap = new QPixmap(orig->copy(QRect(120, 0, 60, 60)));
+        pixmaps.append(pixmap);
+
+        pixmap = new QPixmap(orig->copy(QRect(180, 0, 60, 60)));
+        pixmaps.append(pixmap);
+
+        pixmap = new QPixmap(orig->copy(QRect(240, 0, 60, 60)));
+        pixmaps.append(pixmap);
+    }
+
+    return true;
 }

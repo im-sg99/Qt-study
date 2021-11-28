@@ -25,12 +25,8 @@ public:
     Game();
 
 private:
-    QGraphicsScene * m_scene;
-    Block * m_block;
-    Map * m_map;
-    Player * m_player;
-
-    VillageMapGenerator m_mapgen;
+    QGraphicsScene *m_scene;
+    VirtualMapGenerator *m_mapgen;
 
     void InitializeMap(QGraphicsScene &scene);
     void InitializePlayer();

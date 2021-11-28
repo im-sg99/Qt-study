@@ -3,6 +3,7 @@
 
 #include <QLinkedList>
 #include <QPixmap>
+#include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
 
 class VirtualMapGenerator
@@ -10,16 +11,14 @@ class VirtualMapGenerator
 public:
     VirtualMapGenerator();
 
-    bool GetPixmapInfo(const QLinkedList<QPixmap*> &pixmaps);
+    bool AddPixmapInfo(QGraphicsScene &scene);
 
 protected:
     virtual int GetPixmapRow() = 0;
     virtual int GetPixmapColumn() = 0;
 
-    virtual std::vector<std::vector<int>> GetPixmapIndexes() = 0;
-    virtual QLinkedList<QPixmap *> GetPixmaps() = 0;
-
-    virtual bool GetPixmaps(const QLinkedList<QPixmap *> &pixmaps) = 0;
+    virtual bool GetPixmapMatrix(std::vector<std::vector<int>> &matrix) = 0;
+    virtual bool GetPixmaps(QLinkedList<QPixmap *> &pixmaps) = 0;
 private:
     int m_pixmapRow;
     int m_pixmapColumn;

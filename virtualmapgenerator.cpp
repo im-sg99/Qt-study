@@ -1,37 +1,34 @@
 #include "virtualmapgenerator.h"
 
-#include <QSaveFile>
-
 VirtualMapGenerator::VirtualMapGenerator()
 {
 
 }
 
-bool VirtualMapGenerator::GetPixmapInfo(const QLinkedList<QPixmap*> &pixmaps)
+bool VirtualMapGenerator::AddPixmapInfo(QGraphicsScene &scene)
 {
-    if(!pixmaps.isEmpty()) {
-        // needed elements destroying
+    std::vector<std::vector<int>> matrix;
+    bool success = GetPixmapMatrix(matrix);
+    if (!success)
+        return false;
 
-        pixmaps.clear();
-    }
-
-    std::vector<std::vector<int>> indexes = GetPixmapIndexes();
-    QLinkedList<QPixmap *> pixmaps = GetPixmaps();
+    QLinkedList<QPixmap*> pixmaps;
+    success = GetPixmaps(pixmaps);
+    if (!success)
+        return false;
 
     for(int r=0; r<GetPixmapRow(); r++) {
         for(int c=0; c<GetPixmapColumn(); c++) {
-            int type = indexes[r][c];
+            int type = matrix[r][c];
 
             auto it = pixmaps.begin();
             std::advance(it, type-1);
             QPixmap* pixmap = *it;
 
-            QGraphicsPixmapItem* gPixmap = new QGraphicsPixmapItem(*pixmap);
+            auto gPixmap = scene.addPixmap(pixmap->copy());
             gPixmap->setPos(c*60, r*60);
-
-            result.append(gPixmap);
         }
     }
 
-    return result;
+    return true;
 }
