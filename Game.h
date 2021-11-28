@@ -14,26 +14,27 @@
 #include <QKeyEvent>
 #include <QPixmap>
 #include <QPainter>
-#include "Map.h"
 #include "Block.h"
 #include "Player.h"
-
+#include "virtualmapgenerator.h"
+#include "virtualplayer.h"
 
 class Game: public QGraphicsView{
 public:
     Game();
 
 private:
-    void InitializeMap(QGraphicsScene &scene);
-    void InitializePlayer();
-    void Village(QGraphicsScene &scene);
-    void InitializeBlock(QGraphicsScene &scene);
+    QGraphicsScene *m_scene;
+    VirtualMapGenerator *m_mapgen;
 
-    QGraphicsScene * m_scene;
+    VirtualPlayer *m_player1;
+    VirtualPlayer *m_player2;
+
     Block * m_block;
-    Map * m_map;
-    Player * m_player;
 
+    void InitializeMap(QGraphicsScene &scene);
+    void InitializeBlock(QGraphicsScene &scene);
+    void InitializePlayer(QGraphicsScene &scene);
 };
 
 #endif // GAME_H

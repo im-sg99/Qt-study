@@ -11,17 +11,27 @@ CONFIG += c++11
 SOURCES += \
     Block.cpp \
     Game.cpp \
-    Map.cpp \
     Player.cpp \
     bomb.cpp \
-    main.cpp
+    main.cpp \
+    villagemapgenerator.cpp \
+    virtualmapgenerator.cpp \
+    fileutilities.cpp \
+    dao.cpp \
+    virtualplayer.cpp \
+    bazzi.cpp
 
 HEADERS += \
     Block.h \
     Game.h \
-    Map.h \
     Player.h \
-    bomb.h
+    bomb.h \
+    villagemapgenerator.h \
+    virtualmapgenerator.h \
+    fileutilities.h \
+    dao.h \
+    virtualplayer.h \
+    bazzi.h
 
 FORMS +=
 
