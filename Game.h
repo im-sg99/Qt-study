@@ -17,7 +17,7 @@
 #include "Block.h"
 #include "Player.h"
 #include "virtualmapgenerator.h"
-#include "villagemapgenerator.h"
+#include "virtualplayer.h"
 
 class Game: public QGraphicsView{
 public:
@@ -27,11 +27,14 @@ private:
     QGraphicsScene *m_scene;
     VirtualMapGenerator *m_mapgen;
 
+    VirtualPlayer *m_player1;
+    VirtualPlayer *m_player2;
+
     Block * m_block;
 
     void InitializeMap(QGraphicsScene &scene);
     void InitializeBlock(QGraphicsScene &scene);
-    void InitializePlayer();
+    void InitializePlayer(QGraphicsScene &scene);
 };
 
 #endif // GAME_H

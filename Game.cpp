@@ -1,5 +1,9 @@
 #include "Game.h"
 
+#include "villagemapgenerator.h"
+#include "dao.h"
+#include "bazzi.h"
+
 Game::Game(){
     this->setWindowTitle("Crazy Arcade");
     this->setWindowIcon(QIcon(":/Images/icon.png"));
@@ -13,7 +17,8 @@ Game::Game(){
 
     m_mapgen = new VillageMapGenerator();
     InitializeMap(*m_scene);
-    InitializePlayer();
+
+    InitializePlayer(*m_scene);
 
     setScene(m_scene);
 }
@@ -22,14 +27,6 @@ void Game::InitializeMap(QGraphicsScene &scene){
     bool success = m_mapgen->AddPixmapInfo(scene);
     if (!success)
         throw;
-}
-
-void Game::InitializePlayer(){
-    //m_player = new Player();
-    //m_player->setPos(350,250);
-    //m_player->setFlag(QGraphicsItem::ItemIsFocusable);
-    //m_player->setFocus();
-    //m_scene->addItem(m_player);
 }
 
 void Game::InitializeBlock(QGraphicsScene &scene){
@@ -62,3 +59,12 @@ void Game::InitializeBlock(QGraphicsScene &scene){
         }
     }
 }
+
+void Game::InitializePlayer(QGraphicsScene &scene){
+    m_player1 = new Dao(true);
+    m_player2 = new Bazzi(false);
+
+    scene.addItem(m_player1);
+    //scene.addPixmap(m_player2);
+}
+

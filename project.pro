@@ -16,7 +16,10 @@ SOURCES += \
     main.cpp \
     villagemapgenerator.cpp \
     virtualmapgenerator.cpp \
-    fileutilities.cpp
+    fileutilities.cpp \
+    dao.cpp \
+    virtualplayer.cpp \
+    bazzi.cpp
 
 HEADERS += \
     Block.h \
@@ -25,7 +28,10 @@ HEADERS += \
     bomb.h \
     villagemapgenerator.h \
     virtualmapgenerator.h \
-    fileutilities.h
+    fileutilities.h \
+    dao.h \
+    virtualplayer.h \
+    bazzi.h
 
 FORMS +=
 
