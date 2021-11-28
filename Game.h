@@ -30,6 +30,7 @@ private:
     Block * m_block;
 
     void InitializeMap(QGraphicsScene &scene);
+    void InitializeBlock(QGraphicsScene &scene);
     void InitializePlayer();
 };
 
