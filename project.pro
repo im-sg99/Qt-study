@@ -11,7 +11,6 @@ CONFIG += c++11
 SOURCES += \
     Block.cpp \
     Game.cpp \
-    Map.cpp \
     Player.cpp \
     bomb.cpp \
     main.cpp \
@@ -22,7 +21,6 @@ SOURCES += \
 HEADERS += \
     Block.h \
     Game.h \
-    Map.h \
     Player.h \
     bomb.h \
     villagemapgenerator.h \

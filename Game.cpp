@@ -14,6 +14,8 @@ Game::Game(){
     m_mapgen = new VillageMapGenerator();
     InitializeMap(*m_scene);
 
+    InitializePlayer();
+
     setScene(m_scene);
 }
 
@@ -24,7 +26,7 @@ void Game::InitializeMap(QGraphicsScene &scene){
 }
 
 void Game::InitializePlayer(){
-    // m_player = new Player();
+    //m_player = new Player();
     //m_player->setPos(350,250);
     //m_player->setFlag(QGraphicsItem::ItemIsFocusable);
     //m_player->setFocus();

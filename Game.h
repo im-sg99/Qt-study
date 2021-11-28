@@ -14,7 +14,6 @@
 #include <QKeyEvent>
 #include <QPixmap>
 #include <QPainter>
-#include "Map.h"
 #include "Block.h"
 #include "Player.h"
 #include "virtualmapgenerator.h"
