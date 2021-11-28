@@ -27,6 +27,8 @@ private:
     QGraphicsScene *m_scene;
     VirtualMapGenerator *m_mapgen;
 
+    Block * m_block;
+
     void InitializeMap(QGraphicsScene &scene);
     void InitializePlayer();
 };
