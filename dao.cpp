@@ -8,7 +8,7 @@ Dao::Dao(bool useArrowKey)
 
 }
 
-bool Dao::GetPositionPixmaps(QHash<int, QLinkedList<QGraphicsPixmapItem *>> &dict)
+bool Dao::GetPositionPixmaps(QHash<int, std::list<QGraphicsPixmapItem *>> &dict)
 {
 
 }

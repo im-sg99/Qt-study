@@ -1,7 +1,7 @@
 #ifndef VIRTUALMAPGENERATOR_H
 #define VIRTUALMAPGENERATOR_H
 
-#include <QLinkedList>
+#include <list>
 #include <QPixmap>
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
@@ -18,7 +18,7 @@ protected:
     virtual int GetPixmapColumn() = 0;
 
     virtual bool GetPixmapMatrix(std::vector<std::vector<int>> &matrix) = 0;
-    virtual bool GetPixmaps(QLinkedList<QPixmap *> &pixmaps) = 0;
+    virtual bool GetPixmaps(std::list<QPixmap *> &pixmaps) = 0;
 private:
     int m_pixmapRow;
     int m_pixmapColumn;

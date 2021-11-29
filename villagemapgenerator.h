@@ -12,11 +12,11 @@ public:
     int GetPixmapColumn() override;
 
     bool GetPixmapMatrix(std::vector<std::vector<int>> &matrix) override;
-    bool GetPixmaps(QLinkedList<QPixmap *> &pixmaps) override;
+    bool GetPixmaps(std::list<QPixmap *> &pixmaps) override;
 
 private:
     std::vector<std::vector<int>> m_matrix;
-    QLinkedList<QPixmap *> m_pixmaps;
+    std::list<QPixmap *> m_pixmaps;
 };
 
 #endif // VILLAGEMAPGENERATOR_H

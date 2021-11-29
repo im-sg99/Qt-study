@@ -9,7 +9,7 @@ public:
     Dao(bool useArrowKey);
 
 protected:
-    bool GetPositionPixmaps(QHash<int, QLinkedList<QGraphicsPixmapItem*>> &dict) override;
+    bool GetPositionPixmaps(QHash<int, std::list<QGraphicsPixmapItem*>> &dict) override;
 };
 
 #endif // DAO_H
