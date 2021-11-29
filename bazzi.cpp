@@ -6,7 +6,7 @@ Bazzi::Bazzi(bool useArrowKey)
 
 }
 
-bool Bazzi::GetPositionPixmaps(QHash<int, QLinkedList<QGraphicsPixmapItem *> > &dict)
+bool Bazzi::GetPositionPixmaps(QHash<int, std::list<QGraphicsPixmapItem *> > &dict)
 {
 
 }

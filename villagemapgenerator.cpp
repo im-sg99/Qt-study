@@ -57,13 +57,13 @@ bool VillageMapGenerator::GetPixmapMatrix(std::vector<std::vector<int>> &matrix)
     return true;
 }
 
-bool VillageMapGenerator::GetPixmaps(QLinkedList<QPixmap *> &pixmaps)
+bool VillageMapGenerator::GetPixmaps(std::list<QPixmap *> &pixmaps)
 {
     bool success = GetPixmapMatrix(m_matrix);
     if (!success)
         return false;
 
-    if (pixmaps.count() < GetMax(m_matrix))
+    if (pixmaps.size() < GetMax(m_matrix))
     {
         // TODO:: need to destory elements;
         pixmaps.clear();
@@ -71,19 +71,19 @@ bool VillageMapGenerator::GetPixmaps(QLinkedList<QPixmap *> &pixmaps)
         auto orig = new QPixmap(":/Images/tile.png");
 
         auto pixmap = new QPixmap(orig->copy(QRect(0, 0, 60, 60)));
-        pixmaps.append(pixmap);
+        pixmaps.push_back(pixmap);
 
         pixmap = new QPixmap(orig->copy(QRect(60, 0, 60, 60)));
-        pixmaps.append(pixmap);
+        pixmaps.push_back(pixmap);
 
         pixmap = new QPixmap(orig->copy(QRect(120, 0, 60, 60)));
-        pixmaps.append(pixmap);
+        pixmaps.push_back(pixmap);
 
         pixmap = new QPixmap(orig->copy(QRect(180, 0, 60, 60)));
-        pixmaps.append(pixmap);
+        pixmaps.push_back(pixmap);
 
         pixmap = new QPixmap(orig->copy(QRect(240, 0, 60, 60)));
-        pixmaps.append(pixmap);
+        pixmaps.push_back(pixmap);
     }
 
     return true;

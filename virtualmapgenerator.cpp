@@ -12,7 +12,7 @@ bool VirtualMapGenerator::AddPixmapInfo(QGraphicsScene &scene)
     if (!success)
         return false;
 
-    QLinkedList<QPixmap*> pixmaps;
+    std::list<QPixmap*> pixmaps;
     success = GetPixmaps(pixmaps);
     if (!success)
         return false;
